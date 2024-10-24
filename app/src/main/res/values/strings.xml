@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">custom_controller</string>
-    <string name="open_account">Open Account</string>
-    <string name="menu_title_profile">Account Openning\n</string>
-    <string name="profile">profile\n</string>
-    <string name="nav_profile">nav_profile\n</string>
-    <string name="menu_title_accounts">Accounts\n</string>
-    <string name="accounts">accounts\n</string>
+    <string name="open_account">open_account</string>
+    <string name="menu_title_profile">Profile</string>
+    <string name="profile">profile</string>
+    <string name="nav_profile">nav_profile</string>
+    <string name="menu_title_accounts">Accounts</string>
+    <string name="accounts">accounts</string>
+    <string name="Open">Account Opening</string>
 </resources>

@@ -1,6 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.20" // this version matches your Kotlin version
+
 }
 
 android {
@@ -19,7 +23,9 @@ android {
             useSupportLibrary = true
         }
     }
-
+    hilt {
+        enableAggregatingTask = true
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -59,6 +65,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -66,4 +73,26 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    //HILT
+    implementation (libs.hilt.android)
+    kapt (libs.hilt.compiler)
+
+
+    // ViewModel
+    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    // ViewModel utilities for Compose
+    implementation (libs.androidx.lifecycle.viewmodel.compose)
+
+    //Coroutines
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
+
+    //Retrofit
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
+    //Navigation
+    implementation (libs.androidx.navigation.compose)
+    implementation (libs.androidx.hilt.navigation.compose)
 }

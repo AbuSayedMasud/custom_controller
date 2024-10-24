@@ -1,21 +1,9 @@
-package com.fintechhub.custom_controller
+package com.fintechhub.custom_controller.di
 
-import android.content.Context
+import com.fintechhub.custom_controller.R
+import javax.inject.Inject
 
-class AppMenuItem(context: Context, val key: MenuKey) {
-    val isSecured: Boolean
-        get() = this.key.secured
-
-    val iconId: Int
-        get() = this.key.iconDrawableId
-
-    val nav: Int
-        get() = this.key.navigation
-
-    val title: Int
-        get() = this.key.titleStringId
-
-
+class AppMenuItem @Inject constructor(val key: MenuKey) {
     enum class MenuKey(
         val titleStringId: Int,
         val iconDrawableId: Int,
@@ -23,29 +11,30 @@ class AppMenuItem(context: Context, val key: MenuKey) {
         val secured: Boolean
     ) {
         OPEN_ACCOUNT(
-            R.string.menu_title_profile,
-            R.drawable.ic_launcher_background,
+            R.string.Open ,
+            R.drawable.baseline_offline_pin_24,
             R.string.open_account,
             true
         ),
         PROFILE(
             R.string.menu_title_profile,
-            R.drawable.ic_launcher_background,
+            R.drawable.baseline_person_24,
             R.string.profile,
             true
         ),
         NAV_PROFILE(
             R.string.menu_title_profile,
-            R.drawable.ic_launcher_background,
+            R.drawable.baseline_offline_pin_24,
             R.string.nav_profile,
             true
         ),
         ACCOUNTS(
             R.string.menu_title_accounts,
-            R.drawable.ic_launcher_background,
+            R.drawable.baseline_home_24,
             R.string.accounts,
             true
         );
 
     }
+
 }
